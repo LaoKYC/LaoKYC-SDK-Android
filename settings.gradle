@@ -1,2 +1,3 @@
+include ':laokycandroid'
 rootProject.name='LaoKYCOIDC'
 include ':app'
