@@ -26,8 +26,8 @@ class MDSSOP1 {
     @Test
     fun SendAPIRequestForVerify(){
 
-        val result = signOn!!.CheckAuthState("32424234234234" , "https://gateway.sbg.la/" )
-        Assert.assertEquals(true , result.IsSuccess)
+//        val result = signOn!!.CheckAuthState("32424234234234" , "https://gateway.sbg.la/" )
+//        Assert.assertEquals(true , result.IsSuccess)
        // assert(result.IsSuccess)
     }
 
