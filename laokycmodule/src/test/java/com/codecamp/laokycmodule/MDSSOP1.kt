@@ -1,4 +1,4 @@
-package com.codecamp.laokycoidc
+package com.codecamp.laokycmodule
 
 import org.junit.Test
 
