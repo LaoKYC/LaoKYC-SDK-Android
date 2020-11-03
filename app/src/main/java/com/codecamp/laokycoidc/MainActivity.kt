@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         singleSignOn.CheckAuthState(CheckAuthStateRequest("432425235235" , "https://api.oneid.sbg.la/" , this@MainActivity)){ result ->
             tvText.text = result.Code.toString()
         }
