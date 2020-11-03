@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         result = singleSignOn.CheckAuthState("432425235235" , "https://gateway.sbg.la/" , this@MainActivity)
-        
+
         tvText.text = result!!.Message
         //Toast.makeText(this , result.Code , Toast.LENGTH_LONG).show()
         // val result = SingleSignOn().CheckAuthState("wewerwer" , "https://gateway.sbg.la/" , this@MainActivity)
