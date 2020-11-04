@@ -17,8 +17,8 @@
 ແມ່ນ Module ທີ່ໄວ້ຈັດການກັບຂໍ້ມູນ ໃນສ່ວນຂອງ Single SignOn
 ລຳດັບ | ຕົວຫຍໍ້ | ຄຳອາທິບາຍ | Implement | Production
 ----- | ----- | ---------- | --------- | --
-1 | MD-SSO-P1-NC01 | ສົ່ງ Request ໄປຫາ API ເພື່ອ Verify state | No | No
-2 | MD-SSO-P1-NC02 | ສົ່ງ OTP Request ໄປຫາ API ຂໍ Login | No | No
+1 | MD-SSO-P1-NC01 | ສົ່ງ Request ໄປຫາ API ເພື່ອ Verify state | Yes | No
+2 | MD-SSO-P1-NC02 | ສົ່ງ OTP Request ໄປຫາ API ຂໍ Login | YES | No
 3 | MD-SSO-P2-NC03 | ດຶງຂໍ້ມູນຈາກ Claims | No | No
 
 ## Validator Services
