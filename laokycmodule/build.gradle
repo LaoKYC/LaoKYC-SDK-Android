@@ -11,9 +11,9 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
+
     }
 
     buildTypes {
@@ -48,4 +48,11 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
     implementation 'com.google.code.gson:gson:2.8.5'
 
+    // OPEN ID
+    implementation 'net.openid:appauth:0.7.1'
+    implementation 'com.auth0.android:jwtdecode:1.4.0'
+
+    implementation 'com.github.TutorialsAndroid:KAlertDialog:v4.1'     // Dialog Library
+
 }
+
