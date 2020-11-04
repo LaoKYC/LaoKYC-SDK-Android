@@ -1,7 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'org.jetbrains.dokka-android'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.codecamplao.laokycmodule'
+version='1.0'
+
 
 android {
     compileSdkVersion 29
@@ -57,7 +60,7 @@ dependencies {
 
 }
 
-dokka {
+/*dokka {
     outputFormat = 'html'
     outputDirectory = "$buildDir/javadoc"
 }
@@ -84,5 +87,5 @@ ext {
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
-}
+}*/
 

@@ -11,7 +11,6 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.codecamp.laokycmodule.R
 import com.codecamp.laokycmodule.dtos.OIDCRequest
 import com.codecamp.laokycmodule.dtos.OTPRequest
 import com.codecamp.laokycmodule.dtos.OTPResponse
@@ -20,6 +19,7 @@ import com.codecamp.laokycmodule.services.IOIDCConfig
 import com.codecamp.laokycmodule.services.IOIDCService
 import com.codecamp.laokycmodule.services.IOTPService
 import com.codecamp.laokycmodule.util.NetworkUtil
+import com.codecamplao.laokycmodule.R
 import com.google.gson.Gson
 import com.gov.mpt.laokyclib.utils.ProgressDialogUtil
 import org.json.JSONObject

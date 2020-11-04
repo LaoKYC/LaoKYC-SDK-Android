@@ -8,7 +8,7 @@ import android.util.TypedValue;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
 
-import com.codecamp.laokycmodule.R;
+import com.codecamplao.laokycmodule.R;
 
 import static com.codecamp.laokycmodule.util.Constants.BUTTON_TEXT_SIZE;
 
