@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 
-import com.codecamp.laokycmodule.BuildConfig;
 import com.codecamp.laokycmodule.services.IOIDCConfig;
+import com.codecamplao.laokycmodule.BuildConfig;
 
 import net.openid.appauth.AppAuthConfiguration;
 import net.openid.appauth.AuthState;

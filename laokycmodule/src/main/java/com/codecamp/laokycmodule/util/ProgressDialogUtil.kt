@@ -10,7 +10,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import com.codecamp.laokycmodule.R
+import com.codecamplao.laokycmodule.R
 
 /**
  * Created by SBlab on 2020-10-29.
