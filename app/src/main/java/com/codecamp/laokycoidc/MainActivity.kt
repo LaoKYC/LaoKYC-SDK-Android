@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         tvText.text = claimService.firstName + " " + claimService.familyName + " "+ claimService.preferredUsername
 
 
+
     }
 
 }
