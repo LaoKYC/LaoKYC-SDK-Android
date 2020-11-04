@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.dokka-android'
 
 android {
     compileSdkVersion 29
@@ -30,6 +31,7 @@ android {
 
 
 
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -51,8 +53,36 @@ dependencies {
     // OPEN ID
     implementation 'net.openid:appauth:0.7.1'
     implementation 'com.auth0.android:jwtdecode:1.4.0'
-
     implementation 'com.github.TutorialsAndroid:KAlertDialog:v4.1'     // Dialog Library
 
+}
+
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/javadoc"
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'laokyc-android-oidc'
+
+    publishedGroupId = 'com.codecamp.laokycmodule'
+    libraryName = 'LaoKYC-OIDC'
+    artifact = 'laokyc-android-oidc'
+
+    libraryDescription = 'LaoKYC is e-KYC Platform'
+
+    siteUrl = 'https://github.com/LaoKYC/LaoKYCOIDC'
+    gitUrl = 'https://github.com/LaoKYC/LaoKYCOIDC.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'thipphakone'
+    developerName = 'Thipphakone Manivong'
+    developerEmail = 'tumtrick@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
 
