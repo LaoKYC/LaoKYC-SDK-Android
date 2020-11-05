@@ -3,16 +3,13 @@ package com.codecamp.laokycmodule.repositories
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.annotation.NonNull
 import com.auth0.android.jwt.JWT
-import com.codecamp.laokycmodule.MyApp
 import com.codecamp.laokycmodule.model.ModelClaims
 import com.codecamp.laokycmodule.oauth.AuthManager
 import com.codecamp.laokycmodule.oauth.SharedPreferencesRepository
 import com.codecamp.laokycmodule.services.IClaimService
 import com.codecamp.laokycmodule.services.IOIDCConfig
 import com.google.gson.Gson
-import com.gov.mpt.laokyc.model.claimmodel.ClaimModel
 import net.openid.appauth.*
 
 class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
@@ -29,7 +26,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
     override var preferredUsername: String = ""
     override var gender: String = ""
 
-    override fun ExtractClaims(context: Context , intent : Intent) {
+    override fun ExtractClaims(context: Context, intent: Intent) {
 
         val resp = AuthorizationResponse.fromIntent(intent)
         val ex =

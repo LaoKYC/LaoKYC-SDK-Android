@@ -40,15 +40,11 @@ class LoginActivity : AppCompatActivity() {
 
         btnSignInWithLaoKYC.setOnClickListener() {
 
-
             // Init OTP Service
             var Device = "Tatum's Device"
             var otpRequest = OTPRequest( "" ,Device  , "https://gateway.sbg.la/api/login"  ,this@LoginActivity)
 
-            // Init OIDC Request
-            //var oidcRequest = OIDCRequest( this@LoginActivity , "" , "Android" , "login" , LoginOnResultActivity::class.java)
-
-            requestOTP.showDialog( otpRequest  , LoginOnResultActivity::class.java)
+            requestOTP.showDialog( otpRequest  , MainActivity::class.java)
 
         }
 

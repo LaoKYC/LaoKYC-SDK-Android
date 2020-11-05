@@ -32,10 +32,13 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
     var btnLoginSubmit: Button? = null
     var ivLoginMainClose: ImageView? = null
     var dialog: ProgressDialogUtil? = null
+    var dialogPop : ProgressDialogUtil? = null
     var _OperatorName : String? = null
     var _OperatorDB : String? = null
 
     override fun RequestOTP(Request: OTPRequest  , Callback: (OTPResponse) -> Unit) {
+
+                dialogPop = ProgressDialogUtil(Request.activity)
 
                 if (Request.Phone == null || Request.Phone.isEmpty()) {
                     val result = OTPResponse(300, "Phone is empty", false)
@@ -48,6 +51,7 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
 
                 }
 
+                dialogPop!!.showDialogProgress(  "ຂໍລະຫັດຜ່ານ...")
 
                 val queue = Volley.newRequestQueue(Request.activity)
 
@@ -65,6 +69,9 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
                             val strResp = response.toString()
                             val urlBodyGson = Gson().fromJson(strResp, ModelOTP::class.java)
                             val result = OTPResponse(200, urlBodyGson.message, true)
+
+                            dialogPop!!.dismissDialogProgress()
+
                             Callback.invoke(result)
 
                         }, Response.ErrorListener { error ->
@@ -91,6 +98,7 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
     override fun showDialog(request : OTPRequest , redirectActivity : Class<*>) {
 
         dialogLaoKYC = Dialog(request.activity)
+        dialog = ProgressDialogUtil(request.activity)
         dialogLaoKYC!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialogLaoKYC!!.setCancelable(false)
         dialogLaoKYC!!.setContentView(R.layout.activity_dialog)
@@ -98,6 +106,8 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
         ivLoginMainClose = dialogLaoKYC!!.findViewById(R.id.ivLoginMainClose)
         etLoginPhonenumber = dialogLaoKYC!!.findViewById(R.id.etLoginPhonenumber)
         btnLoginSubmit = dialogLaoKYC!!.findViewById(R.id.btnLoginSubmit)
+
+        etLoginPhonenumber!!.requestFocus()
 
         dialogLaoKYC!!.show()
 
@@ -147,13 +157,17 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
                 return@setOnClickListener
 
             }
+
+            dialogLaoKYC!!.dismiss()
+
                 // API Request OTP
                 RequestOTP(OTPRequest(etLoginPhonenumber!!.getText().toString() , request.Device , request.URL_API ,
                     request.activity) ) { result ->
 
                     if (result.IsSuccess == true) {
-                        var oidcRequest = OIDCRequest( request.activity, etLoginPhonenumber!!.getText().toString() , "Android" , "login" , redirectActivity)
 
+                        var oidcRequest = OIDCRequest( request.activity, etLoginPhonenumber!!.getText().toString() , "Android" , "login" , redirectActivity)
+                        dialogPop!!.dismissDialogProgress()
                         authLogin.OIDCAuthLogin(oidcRequest)
 
                     } else {
