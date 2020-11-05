@@ -1,15 +1,12 @@
 package com.codecamp.laokycoidc
 
-import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.codecamp.laokycmodule.dtos.CheckAuthStateResponse
-import com.codecamp.laokycmodule.dtos.OIDCRequest
-import com.codecamp.laokycmodule.dtos.OTPRequest
 import com.codecamp.laokycmodule.services.*
-import com.codecamp.laokycoidc.*
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
-import net.openid.appauth.BuildConfig
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
@@ -20,8 +17,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tvText.text = claimService.firstName + " " + claimService.familyName + " "+ claimService.preferredUsername
 
+        // Register Claim
+        claimService.ExtractClaims( this@MainActivity , intent)
+
+       // tvText.text = claimService.firstName + " " + claimService.familyName + " "+ claimService.preferredUsername + "\n" + claimService.accessToken
+        tvCovidDashboardPhoneNumber.text = claimService.preferredUsername
+        tvCovidFirstNameAndSurName.text = claimService.firstName + " " + claimService.familyName
+
+        Picasso.get().load("https://gateway.sbg.la/api/render/MyPhoto/" + claimService.preferredUsername + "?")
+            .memoryPolicy(MemoryPolicy.NO_CACHE)
+            .resize(512, 670).into(ivCovidDashboardPhotoProfile)
+
+        tvCovidAccessToken.text = claimService.accessToken
+
+        if (claimService.preferredUsername == "") {
+            this.recreate()
+        }
 
 
     }
