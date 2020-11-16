@@ -38,6 +38,21 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
 
     override fun RequestOTP(Request: OTPRequest  , Callback: (OTPResponse) -> Unit) {
 
+
+                /*val service = ServiceVolley()
+                val apiController = APIController(service)
+
+                val urlPath = "example_endpoint"
+                val accessToken = "jhklvcbhfiugh8r348u3rhrifhhf934f"
+                val paramsVolley = JSONObject()
+                paramsVolley.put("email", "foo@email.com")
+                paramsVolley.put("password", "barpass")
+
+                apiController.post(urlPath , accessToken, paramsVolley) { response ->
+                    // Parse the result
+                }*/
+
+
                 dialogPop = ProgressDialogUtil(Request.activity)
 
                 if (Request.Phone == null || Request.Phone.isEmpty()) {
@@ -53,7 +68,34 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
 
                 dialogPop!!.showDialogProgress(  "ຂໍລະຫັດຜ່ານ...")
 
-                val queue = Volley.newRequestQueue(Request.activity)
+                val service = ServiceVolley()
+                val apiController = APIController(service)
+
+                val urlPath = Request.URL_API
+                val accessToken = ""
+                val paramsVolley = JSONObject()
+                paramsVolley.put("phone", Request.Phone)
+                paramsVolley.put("Device", Request.Device)
+
+                apiController.post(Request.activity , urlPath , accessToken, paramsVolley) { response , error ->
+
+                    dialogPop!!.dismissDialogProgress()
+
+                    if (response != null ) {
+                        val strResp = response.toString()
+                        val urlBodyGson = Gson().fromJson(strResp, ModelOTP::class.java)
+                        val result = OTPResponse(200, urlBodyGson.message, true)
+
+                        Callback.invoke(result)
+                    } else {
+                        val status = error!!.networkResponse?.statusCode
+                        val result = OTPResponse(status!!, error!!.message.toString(), false)
+                        Callback.invoke(result)
+                    }
+                }
+
+
+              /*  val queue = Volley.newRequestQueue(Request.activity)
 
                 val params = HashMap<String, String>()
                 params["phone"] = Request.Phone
@@ -89,7 +131,7 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
                             return headers
                         }
                     }
-                queue!!.add(req)
+                queue!!.add(req)*/
 
     }
 

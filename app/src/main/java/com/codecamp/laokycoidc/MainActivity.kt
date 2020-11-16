@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         // Register Claim
         claimService.ExtractClaims( this@MainActivity , intent)
 
-       // tvText.text = claimService.firstName + " " + claimService.familyName + " "+ claimService.preferredUsername + "\n" + claimService.accessToken
+
         tvCovidDashboardPhoneNumber.text = claimService.preferredUsername
         tvCovidFirstNameAndSurName.text = claimService.firstName + " " + claimService.familyName
 
@@ -34,8 +34,7 @@ class MainActivity : AppCompatActivity() {
         if (claimService.preferredUsername == "") {
             this.recreate()
         }
-
-
+        
     }
 
 }
