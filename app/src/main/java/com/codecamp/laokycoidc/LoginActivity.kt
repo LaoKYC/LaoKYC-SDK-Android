@@ -29,13 +29,7 @@ class LoginActivity : AppCompatActivity() {
 
         val result = """
         {
-            "AUTHORIZSTION_END_POINT_URI":"https://login.oneid.sbg.la/connect/authorize",
-            "CLIENT_ID":"ldbandroid",
-            "CLIENT_SECRET":"011dc81a-a834-4ad0-54fc-05c15e095f27",
-            "REDIRECT_URI":"io.identityserver.ldbandroid://signin-oidc",
-            "RESPONSE_TYPE":"code",
-            "SCOPE":"profile openid LaoKYC mkyc_api phone",
-            "TOKEN_END_POINT_URI":"https://login.oneid.sbg.la/connect/token"
+           // Contact LaoKYC Team
         }        
         """
 
@@ -56,10 +50,6 @@ class LoginActivity : AppCompatActivity() {
 
             requestOTP.showDialog( otpRequest  , MainActivity::class.java)
 
-            Account("" , 100)
-
-            //var account = Account()
-            //account.address
         }
 
 
