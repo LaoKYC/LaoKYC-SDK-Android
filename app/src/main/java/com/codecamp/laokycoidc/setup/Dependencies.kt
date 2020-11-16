@@ -8,11 +8,12 @@ import org.koin.dsl.module
 
 val appDependencies = module {
 
-        // Singleton (returns always the same unique instance of the object)
         single<ISingleSignOn> { SingleSignOn() }
         single<IOTPService> { OTPServices(get()) }
         single<IOIDCService> { OIDCAuthLogin(get())}
         single<IOIDCConfig> { OIDCConfig()}
         single<IRegisterConfigService> { RegisterConfigService(get())}
         single<IClaimService> { ClaimService(get())}
+        single<ServiceInterface> { APIController(get())}
+
 }

@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.res.Resources
 import com.codecamp.laokycmodule.services.IOIDCConfig
 import com.codecamp.laokycmodule.services.IRegisterConfigService
+import org.json.JSONArray
+import org.json.JSONObject
 import java.io.InputStream
 import java.util.*
 
@@ -28,6 +30,25 @@ class RegisterConfigService(var config : IOIDCConfig) : IRegisterConfigService {
         config.TOKEN_END_POINT_URI = _TOKEN_END_POINT_URI
 
     }
+
+    override fun RegisterConfigBuilder(context: Context, jsonObject: JSONObject) {
+        val _AUTHORIZSTION_END_POINT_URI = jsonObject.getString("AUTHORIZSTION_END_POINT_URI")
+        val _CLIENT_ID = jsonObject.getString("CLIENT_ID")
+        val _CLIENT_SECRET = jsonObject.getString("CLIENT_SECRET")
+        val _REDIRECT_URI = jsonObject.getString("REDIRECT_URI")
+        val _RESPONSE_TYPE = jsonObject.getString("RESPONSE_TYPE")
+        val _SCOPE = jsonObject.getString("SCOPE")
+        val _TOKEN_END_POINT_URI = jsonObject.getString("TOKEN_END_POINT_URI")
+
+        config.ClientID = _CLIENT_ID.toString()
+        config.ClientSecret = _CLIENT_SECRET.toString()
+        config.AUTHORIZSTION_END_POINT_URI = _AUTHORIZSTION_END_POINT_URI.toString()
+        config.REDIRECT_URI = _REDIRECT_URI.toString()
+        config.RESPONSE_TYPE = _RESPONSE_TYPE.toString()
+        config.SCOPE = _SCOPE.toString()
+        config.TOKEN_END_POINT_URI = _TOKEN_END_POINT_URI.toString()
+    }
+
 
     private fun getConfigValue(context:Context , resourceRaw : Int , name : String) : String? {
 
