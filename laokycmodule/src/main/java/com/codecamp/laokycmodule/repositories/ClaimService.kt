@@ -16,7 +16,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
 
     private var mAuthService: AuthorizationService? = null
 
-
+    override var allClaims: String = ""
     override var accessToken: String = ""
     override var firstName: String = ""
     override var familyName: String = ""
@@ -25,6 +25,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
     override var userID: String = ""
     override var preferredUsername: String = ""
     override var gender: String = ""
+    override var account: String = ""
 
     override fun ExtractClaims(context: Context, intent: Intent) {
 
@@ -65,17 +66,19 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
                         accessToken = authManager.authState.accessToken.toString()
 
                         val jwt = JWT(authManager.authState.idToken!!)
-                        val allClaims =
+                        val allClaimsx =
                             jwt.claims
                         val gson = Gson()
-                        val _allClaims = gson.toJson(allClaims)
+                        val _allClaims = gson.toJson(allClaimsx)
                         val _result = gson.fromJson(_allClaims, ModelClaims::class.java)
 
+                        allClaims = allClaimsx.toString()
                         phoneNumber = _result!!.phone!!.value.toString()
                         firstName = _result!!.name!!.value.toString()
                         familyName = _result!!.familyName!!.value.toString()
                         preferredUsername = _result!!.preferredUsername!!.value.toString()
                         userID = _result!!.sub!!.value.toString()
+                        account = _result!!.account!!.value.toString()
                        // gender = _result!!.gender!!.toString()
                         picture = "https://gateway.sbg.la/api/render/MyPhoto/" + preferredUsername + "?"
 
