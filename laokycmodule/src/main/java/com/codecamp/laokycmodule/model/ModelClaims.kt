@@ -36,7 +36,10 @@ data class ModelClaims(
         @SerializedName("preferred_username")
         val preferredUsername: PreferredUsername?,
         @SerializedName("gender")
-        val gender: Gender?
+        val gender: Gender?,
+
+        @SerializedName("account")
+        val account: Account?
 
        /*
         @SerializedName("s_hash")
@@ -46,8 +49,7 @@ data class ModelClaims(
 
         @SerializedName("website")
         val website: Website?,
-         @SerializedName("account")
-        val account: Account?*/
+        */
 
 
 )
