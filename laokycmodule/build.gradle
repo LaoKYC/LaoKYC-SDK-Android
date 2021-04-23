@@ -54,7 +54,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     // OPEN ID
-    implementation 'net.openid:appauth:0.8.1'
+    implementation 'net.openid:appauth:0.7.1'
     implementation 'com.auth0.android:jwtdecode:1.4.0'
     implementation 'com.github.TutorialsAndroid:KAlertDialog:v4.1'     // Dialog Library
 
