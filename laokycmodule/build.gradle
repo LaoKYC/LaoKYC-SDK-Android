@@ -7,12 +7,12 @@ version='1.0'
 
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -54,39 +54,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     // OPEN ID
-    implementation 'net.openid:appauth:0.7.1'
+    implementation 'net.openid:appauth:0.8.1'
     implementation 'com.auth0.android:jwtdecode:1.4.0'
     implementation 'com.github.TutorialsAndroid:KAlertDialog:v4.1'     // Dialog Library
 
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'  // Gif Image
 }
-
-/*dokka {
-    outputFormat = 'html'
-    outputDirectory = "$buildDir/javadoc"
-}
-
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'laokyc-android-oidc'
-
-    publishedGroupId = 'com.codecamplao.laokycmodule'
-    libraryName = 'LaoKYC-OIDC'
-    artifact = 'laokyc-android-oidc'
-
-    libraryDescription = 'LaoKYC is e-KYC Platform'
-
-    siteUrl = 'https://github.com/LaoKYC/LaoKYCOIDC'
-    gitUrl = 'https://github.com/LaoKYC/LaoKYCOIDC.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'thipphakone'
-    developerName = 'Thipphakone Manivong'
-    developerEmail = 'tumtrick@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}*/
 

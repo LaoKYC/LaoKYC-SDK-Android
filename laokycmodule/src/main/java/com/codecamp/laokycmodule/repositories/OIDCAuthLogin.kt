@@ -59,8 +59,7 @@ class OIDCAuthLogin(var config : IOIDCConfig) : IOIDCService  {
 
 
         val authIntent = Intent(Request.activity, Request.redirectActivity)
-        val pendingIntent =
-            PendingIntent.getActivity(Request.activity, authRequest.hashCode(), authIntent, 0)
+        val pendingIntent = PendingIntent.getActivity(Request.activity, authRequest.hashCode(), authIntent, 0)
 
         authService.performAuthorizationRequest(
             authRequest,

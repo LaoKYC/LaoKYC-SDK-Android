@@ -37,7 +37,6 @@ data class ModelClaims(
         val preferredUsername: PreferredUsername?,
         @SerializedName("gender")
         val gender: Gender?,
-
         @SerializedName("account")
         val account: Account?
 

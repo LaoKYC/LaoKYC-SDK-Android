@@ -30,9 +30,9 @@ class LoginActivity : AppCompatActivity() {
         val result = """
         {
             "AUTHORIZSTION_END_POINT_URI":"https://login.oneid.sbg.la/connect/authorize",
-            "CLIENT_ID":"ldbandroid",
-            "CLIENT_SECRET":"011dc81a-a834-4ad0-54fc-05c15e095f27",
-            "REDIRECT_URI":"io.identityserver.ldbandroid://signin-oidc",
+            "CLIENT_ID":"laokyc_lib",
+            "CLIENT_SECRET":"a247944b-1e60-a064-850b-0f7d267b5859",
+            "REDIRECT_URI":"io.identityserver.laokyclib://signin-oidc",
             "RESPONSE_TYPE":"code",
             "SCOPE":"profile openid LaoKYC mkyc_api phone",
             "TOKEN_END_POINT_URI":"https://login.oneid.sbg.la/connect/token"

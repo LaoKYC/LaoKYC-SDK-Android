@@ -13,7 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         manifestPlaceholders = [
-                'appAuthRedirectScheme': 'io.identityserver.ldbandroid://signin-oidc'
+                'appAuthRedirectScheme': 'io.identityserver.laokyclib://signin-oidc'
         ]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
