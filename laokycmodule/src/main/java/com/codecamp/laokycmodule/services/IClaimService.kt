@@ -14,6 +14,7 @@ interface IClaimService {
     var userID : String
     var gender : String
     var account : String
+    var sub : String
 
     fun ExtractClaims(context: Context, dataIntent: Intent)
 
