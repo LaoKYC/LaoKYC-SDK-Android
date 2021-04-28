@@ -26,6 +26,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
     override var preferredUsername: String = ""
     override var gender: String = ""
     override var account: String = ""
+    override var sub: String = ""
 
     override fun ExtractClaims(context: Context, intent: Intent) {
 
@@ -81,7 +82,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
                         account = _result!!.account!!.value.toString()
                        // gender = _result!!.gender!!.toString()
                         picture = "https://gateway.sbg.la/api/render/MyPhoto/" + preferredUsername + "?"
-
+                        sub = _result!!.sub!!.value.toString()
 
                     }
                 })
