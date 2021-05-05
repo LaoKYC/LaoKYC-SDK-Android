@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             .resize(512, 670).into(ivCovidDashboardPhotoProfile)
 
         tvCovidAccessToken.text = claimService.accessToken
-        val _allClaims = claimService.allClaims
+        val _sub = claimService.sub
         val _account = claimService.account
 
         if (claimService.preferredUsername == "") {
