@@ -11,6 +11,7 @@ import com.codecamp.laokycmodule.services.IClaimService
 import com.codecamp.laokycmodule.services.IOIDCConfig
 import com.google.gson.Gson
 import net.openid.appauth.*
+import java.lang.NullPointerException
 
 class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
 
@@ -76,7 +77,14 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
                         allClaims = allClaimsx.toString()
                         phoneNumber = _result!!.phone!!.value.toString()
                         firstName = _result!!.name!!.value.toString()
-                        familyName = _result!!.familyName!!.value.toString()
+
+
+                        try {
+                            familyName = _result!!.familyName!!.value.toString()
+                        } catch (e : NullPointerException) {
+                            familyName = ""
+                        }
+
                         preferredUsername = _result!!.preferredUsername!!.value.toString()
                         userID = _result!!.sub!!.value.toString()
                         account = _result!!.account!!.value.toString()
