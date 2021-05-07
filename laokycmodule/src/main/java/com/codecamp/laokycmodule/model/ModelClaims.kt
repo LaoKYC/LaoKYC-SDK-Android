@@ -38,7 +38,9 @@ data class ModelClaims(
         @SerializedName("gender")
         val gender: Gender?,
         @SerializedName("account")
-        val account: Account?
+        val account: Account?,
+        @SerializedName("factor")
+        val factor: Factor?
 
        /*
         @SerializedName("s_hash")

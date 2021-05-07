@@ -18,6 +18,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
     private var mAuthService: AuthorizationService? = null
 
     override var allClaims: String = ""
+    override var idToken: String = ""
     override var accessToken: String = ""
     override var firstName: String = ""
     override var familyName: String = ""
@@ -27,6 +28,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
     override var preferredUsername: String = ""
     override var gender: String = ""
     override var account: String = ""
+    override var factor: String = ""
     override var sub: String = ""
 
     override fun ExtractClaims(context: Context, intent: Intent) {
@@ -53,6 +55,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
             )
                 .setAuthorizationCode(resp.authorizationCode)
                 .setRedirectUri(Uri.parse(authManager.auth.redirectUri))
+                .setRefreshToken(resp.accessToken)
                 .setCodeVerifier(SharedPreferencesRepository(context).codeVerifier)
                 .build()
             mAuthService = authManager.authService
@@ -74,6 +77,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
                         val _allClaims = gson.toJson(allClaimsx)
                         val _result = gson.fromJson(_allClaims, ModelClaims::class.java)
 
+                        idToken = jwt.toString()
                         allClaims = allClaimsx.toString()
                         phoneNumber = _result!!.phone!!.value.toString()
                         firstName = _result!!.name!!.value.toString()
@@ -91,6 +95,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
                        // gender = _result!!.gender!!.toString()
                         picture = "https://gateway.sbg.la/api/render/MyPhoto/" + preferredUsername + "?"
                         sub = _result!!.sub!!.value.toString()
+                        factor = _result!!.factor!!.value.toString()
 
                     }
                 })
