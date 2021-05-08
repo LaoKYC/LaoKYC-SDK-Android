@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity() {
         if (claimService.preferredUsername == "") {
             this.recreate()
         }
+
+        // Factor | IDToken
+
         
     }
 
