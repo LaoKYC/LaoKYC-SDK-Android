@@ -34,10 +34,14 @@ class MainActivity : AppCompatActivity() {
         tvCovidAccessToken.text = claimService.accessToken
         val _sub = claimService.sub
         val _account = claimService.account
+        val _factor = claimService.factor
 
         if (claimService.preferredUsername == "") {
             this.recreate()
         }
+
+        // Factor | IDToken
+
         
     }
 

@@ -5,6 +5,7 @@ import android.content.Intent
 
 interface IClaimService {
     var allClaims : String
+    var idToken : String
     var accessToken : String
     var firstName : String
     var familyName : String
@@ -15,6 +16,7 @@ interface IClaimService {
     var gender : String
     var account : String
     var sub : String
+    var factor : String
 
     fun ExtractClaims(context: Context, dataIntent: Intent)
 
