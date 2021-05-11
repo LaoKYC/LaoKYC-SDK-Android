@@ -95,7 +95,12 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
                        // gender = _result!!.gender!!.toString()
                         picture = "https://gateway.sbg.la/api/render/MyPhoto/" + preferredUsername + "?"
                         sub = _result!!.sub!!.value.toString()
-                        factor = _result!!.factor!!.value.toString()
+                        try {
+                            factor = _result!!.factor!!.value.toString()
+                        } catch (e : KotlinNullPointerException) {
+                            factor = ""
+                        }
+
 
                     }
                 })
