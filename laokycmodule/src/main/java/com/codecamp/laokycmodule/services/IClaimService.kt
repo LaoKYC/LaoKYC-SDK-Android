@@ -17,6 +17,7 @@ interface IClaimService {
     var account : String
     var sub : String
     var factor : String
+    var isLogOut : Boolean
 
     fun ExtractClaims(context: Context, dataIntent: Intent)
 

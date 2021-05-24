@@ -17,11 +17,13 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
 
     private var mAuthService: AuthorizationService? = null
 
+
+    //private var _firstName : String = ""
     override var allClaims: String = ""
     override var idToken: String = ""
     override var accessToken: String = ""
     override var firstName: String = ""
-    override var familyName: String = ""
+    override var familyName: String  = ""
     override var phoneNumber: String = ""
     override var picture: String = ""
     override var userID: String = ""
@@ -30,8 +32,12 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
     override var account: String = ""
     override var factor: String = ""
     override var sub: String = ""
+    override var isLogOut: Boolean = true
 
     override fun ExtractClaims(context: Context, intent: Intent) {
+
+
+
 
         val resp = AuthorizationResponse.fromIntent(intent)
         val ex =
@@ -44,7 +50,9 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
 
         }
 
-
+        // OpenID
+        // Check State
+        // LogOut - Share Pref
 
         if (resp != null) {
             val clientSecretPost =
@@ -66,6 +74,7 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
                 AuthorizationService.TokenResponseCallback { response, ex ->
 
                     if (ex == null) {
+                        isLogOut = false
                         authManager.updateAuthState(response, ex)
                         // MyApp.Token = authManager.authState.idToken
                         accessToken = authManager.authState.accessToken.toString()
@@ -100,6 +109,8 @@ class ClaimService(var oidcConfig: IOIDCConfig) : IClaimService {
                         } catch (e : KotlinNullPointerException) {
                             factor = ""
                         }
+
+
 
 
                     }
