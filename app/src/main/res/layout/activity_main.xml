@@ -159,7 +159,17 @@ tools:context=".MainActivity">
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_below="@+id/llMainDashboardProfile"/>
+
+    <Button
+        android:id="@+id/btnUploadVaccince"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Upload Vaccince"
+        android:layout_below="@+id/tvCovidAccessToken"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
+
+
 
     <Button
         android:id="@+id/btnLogiOut"

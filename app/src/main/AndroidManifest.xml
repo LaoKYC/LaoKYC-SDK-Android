@@ -9,12 +9,16 @@
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
+
             <category android:name="android.intent.category.BROWSABLE" />
+
             <data android:scheme="https" />
         </intent>
         <intent>
             <action android:name="android.intent.action.VIEW" />
+
             <category android:name="android.intent.category.APP_BROWSER" />
+
             <data android:scheme="https" />
         </intent>
     </queries>
@@ -33,13 +37,11 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
 
-        <activity android:name=".MainActivity"></activity>
-
-
+        <!--<activity android:name=".AuthenticationActivity"></activity> -->
 
         <activity
             android:name="net.openid.appauth.RedirectUriReceiverActivity"
@@ -49,11 +51,10 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="io.identityserver.laokyclib" />
 
+                <data android:scheme="io.identityserver.laokyclib" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
