@@ -2,14 +2,22 @@ package com.codecamp.laokycoidc
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import com.codecamp.laokycmodule.services.*
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // Register Claim
-        claimService.ExtractClaims( this@MainActivity , intent)
+        claimService.ExtractClaims(this@MainActivity, intent)
 
         if (claimService.isLogOut == true) {
             //this.recreate()
@@ -110,14 +118,17 @@ class MainActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         })
+
+
         
     }
 
-    fun saveLogOut(flg:String , context: Context) {
+    fun saveLogOut(flg: String, context: Context) {
         val sharedPreference =  context.getSharedPreferences("LogOut", Context.MODE_PRIVATE)
         var editor = sharedPreference.edit()
-        editor.putString("flg",flg)
+        editor.putString("flg", flg)
         editor.commit()
     }
+
 
 }
