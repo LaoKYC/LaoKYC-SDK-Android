@@ -89,8 +89,15 @@ class OTPServices(var authLogin : IOIDCService) : IOTPService {
                         Callback.invoke(result)
                     } else {
                         val status = error!!.networkResponse?.statusCode
-                        val result = OTPResponse(status!!, error!!.message.toString(), false)
-                        Callback.invoke(result)
+                        if (error!!.message != null) {
+                            val result = OTPResponse(status!!, error!!.message!!, false)
+                            Callback.invoke(result)
+                        } else {
+                            val result = OTPResponse(status!!, "Error null OTP Service", false)
+                            Callback.invoke(result)
+                        }
+
+
                     }
                 }
 
